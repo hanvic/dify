@@ -215,10 +215,11 @@ export const resumeDocIndexing = ({
 export const fetchDocumentDownloadUrl = ({
   datasetId,
   documentId,
-}: CommonDocReq): Promise<DocumentDownloadResponse> => {
+  asAttachment = true,
+}: CommonDocReq & { asAttachment?: boolean }): Promise<DocumentDownloadResponse> => {
   return get<DocumentDownloadResponse>(
     `/datasets/${datasetId}/documents/${documentId}/download`,
-    {},
+    asAttachment ? {} : { as_attachment: 'false' },
   )
 }
 

@@ -786,6 +786,7 @@ export type UpdateDocumentBatchParams = {
   datasetId: string
   documentId?: string
   documentIds?: string[] | string
+  asAttachment?: boolean
 }
 
 export type BatchImportResponse = {

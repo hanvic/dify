@@ -1,7 +1,7 @@
 import type { FC, MouseEvent } from 'react'
 import type { Resources } from './index'
 import { Popover, PopoverContent, PopoverTrigger } from '@langgenius/dify-ui/popover'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import FileIcon from '@/app/components/base/file-icon'
 import Link from '@/next/link'
@@ -9,6 +9,9 @@ import { useDocumentDownload } from '@/service/knowledge/use-document'
 import { downloadUrl } from '@/utils/download'
 import ProgressTooltip from './progress-tooltip'
 import Tooltip from './tooltip'
+
+// Extensions rendered as inline image previews instead of download-only links.
+const IMAGE_EXTENSIONS = new Set(['jpeg', 'jpg', 'png', 'gif', 'webp', 'bmp', 'svg'])
 
 type PopupProps = {
   data: Resources
@@ -18,19 +21,37 @@ type PopupProps = {
 const Popup: FC<PopupProps> = ({ data, showHitInfo = false }) => {
   const { t } = useTranslation()
   const [open, setOpen] = useState(false)
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const fileType =
     data.dataSourceType !== 'notion' ? /\.([^.]*)$/.exec(data.documentName)?.[1] || '' : 'notion'
 
   const { mutateAsync: downloadDocument, isPending: isDownloading } = useDocumentDownload()
 
+  // Both upload_file and local_file (RAG pipeline local datasource) documents
+  // reference an UploadFile and therefore support download/preview links.
+  const isDownloadable =
+    data.dataSourceType === 'upload_file' ||
+    data.dataSourceType === 'file' ||
+    data.dataSourceType === 'local_file'
+  const isImageFile = IMAGE_EXTENSIONS.has(fileType)
+  const datasetId = data.sources?.[0]?.dataset_id
+  const documentId = data.documentId || data.sources?.[0]?.document_id
+
+  // Fetch an inline (as_attachment=false) signed URL to render an image
+  // thumbnail inside the popup when an image document is opened.
+  useEffect(() => {
+    if (!open || !isImageFile || !isDownloadable || !datasetId || !documentId || previewUrl) return
+    downloadDocument({ datasetId, documentId, asAttachment: false })
+      .then((res) => setPreviewUrl(res?.url ?? null))
+      .catch(() => setPreviewUrl(null))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, isImageFile, isDownloadable, datasetId, documentId])
+
   const handleDownloadUploadFile = async (e: MouseEvent<HTMLElement>) => {
     e.preventDefault()
     e.stopPropagation()
 
-    const isUploadFile = data.dataSourceType === 'upload_file' || data.dataSourceType === 'file'
-    const datasetId = data.sources?.[0]?.dataset_id
-    const documentId = data.documentId || data.sources?.[0]?.document_id
-    if (!isUploadFile || !datasetId || !documentId || isDownloading) return
+    if (!isDownloadable || !datasetId || !documentId || isDownloading) return
 
     const res = await downloadDocument({ datasetId, documentId })
     if (res?.url) downloadUrl({ url: res.url, fileName: data.documentName })
@@ -64,8 +85,7 @@ const Popup: FC<PopupProps> = ({ data, showHitInfo = false }) => {
             <div className="flex h-4.5 items-center">
               <FileIcon type={fileType} className="mr-1 size-4 shrink-0" />
               <div className="truncate system-xs-medium text-text-tertiary">
-                {(data.dataSourceType === 'upload_file' || data.dataSourceType === 'file') &&
-                !!data.sources?.[0]?.dataset_id ? (
+                {isDownloadable && !!datasetId ? (
                   <button
                     type="button"
                     className="cursor-pointer truncate border-none bg-transparent p-0 text-left text-text-tertiary hover:underline"
@@ -80,6 +100,29 @@ const Popup: FC<PopupProps> = ({ data, showHitInfo = false }) => {
               </div>
             </div>
           </div>
+          {isImageFile && isDownloadable && !!datasetId && (
+            <div className="px-4 pb-2">
+              {previewUrl ? (
+                <a
+                  data-testid="popup-image-preview"
+                  href={previewUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="block overflow-hidden rounded-lg border border-divider-subtle"
+                >
+                  <img
+                    src={previewUrl}
+                    alt={data.documentName}
+                    className="max-h-[220px] w-full bg-components-panel-bg object-contain"
+                  />
+                </a>
+              ) : isDownloading ? (
+                <div className="flex h-[120px] items-center justify-center rounded-lg border border-divider-subtle system-xs-regular text-text-quaternary">
+                  {t(($) => $['chat.citation.loadingPreview'], { ns: 'common' })}
+                </div>
+              ) : null}
+            </div>
+          )}
           <div className="max-h-112.5 overflow-y-auto rounded-lg bg-components-panel-bg px-4 py-0.5">
             <div className="w-full">
               {data.sources.map((source, index) => {

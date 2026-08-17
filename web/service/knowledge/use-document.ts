@@ -200,11 +200,12 @@ export const useDocumentResume = () => {
 
 export const useDocumentDownload = () => {
   return useMutation({
-    mutationFn: ({ datasetId, documentId }: UpdateDocumentBatchParams) => {
+    mutationFn: ({ datasetId, documentId, asAttachment }: UpdateDocumentBatchParams) => {
       if (!datasetId || !documentId) throw new Error('datasetId and documentId are required')
       return fetchDocumentDownloadUrl({
         datasetId,
         documentId,
+        asAttachment,
       }) as Promise<DocumentDownloadResponse>
     },
   })
