@@ -62,6 +62,53 @@ class TestIndexProcessor:
         assert preview.qa_preview[0].question == "Q1"
         assert preview.qa_preview[0].answer == "A1"
 
+    def test_format_preview_defaults_null_chunk_structure_to_paragraph(self) -> None:
+        preview = IndexProcessor().format_preview(
+            None,
+            ["chunk-1", "chunk-2"],
+        )
+
+        assert preview.chunk_structure == "text_model"
+        assert preview.total_segments == 2
+        assert len(preview.preview) == 2
+        assert preview.preview[0].content == "chunk-1"
+
+    def test_index_and_clean_handles_null_chunk_structure(self) -> None:
+        dataset = SimpleNamespace(
+            id="dataset-1",
+            tenant_id="tenant-1",
+            name="Dataset",
+            chunk_structure=None,
+            summary_index_setting=None,
+        )
+        document = SimpleNamespace(
+            id="document-1",
+            name="Document",
+            created_at=datetime.datetime(2026, 1, 1),
+            indexing_latency=None,
+            indexing_status=None,
+            completed_at=None,
+            word_count=0,
+            need_summary=False,
+        )
+        session = MagicMock()
+        session.scalar.side_effect = [dataset, document, 3]
+
+        index_processor = MagicMock()
+
+        with patch("core.rag.index_processor.index_processor.IndexProcessorFactory") as index_processor_factory:
+            index_processor_factory.return_value.init_index_processor.return_value = index_processor
+            IndexProcessor().index_and_clean(
+                dataset_id=dataset.id,
+                document_id=document.id,
+                original_document_id="",
+                chunks={"general_chunks": ["content"]},
+                batch="batch-1",
+                session=session,
+            )
+
+        index_processor_factory.assert_called_once_with("text_model")
+
     def test_index_and_clean_ends_transactions_around_index_io(self, sqlite_session: Session) -> None:
         dataset, document = _persist_dataset_and_document(sqlite_session)
         phase_events: list[str] = []
