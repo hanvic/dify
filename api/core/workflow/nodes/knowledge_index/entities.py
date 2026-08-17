@@ -3,6 +3,7 @@ from typing import Any, Union
 from pydantic import BaseModel, field_validator
 
 from core.rag.entities import RerankingModelConfig, WeightedScoreConfig
+from core.rag.index_processor.constant.index_type import IndexStructureType
 from core.rag.index_processor.index_processor_base import SummaryIndexSettingDict
 from core.rag.retrieval.retrieval_methods import RetrievalMethod
 from core.workflow.nodes.knowledge_index import KNOWLEDGE_INDEX_NODE_TYPE

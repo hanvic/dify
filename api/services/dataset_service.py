@@ -1723,12 +1723,15 @@ class DocumentService:
         return updated_count
 
     @staticmethod
-    def get_document_download_url(document: Document, session: Session) -> str:
+    def get_document_download_url(document: Document, session: Session, *, as_attachment: bool = True) -> str:
         """
         Return a signed download URL for an upload-file document.
+
+        When ``as_attachment`` is False the URL is resolved for inline viewing
+        (e.g. image preview in a browser) instead of forcing a download.
         """
         upload_file = DocumentService._get_upload_file_for_upload_file_document(document, session)
-        return file_helpers.get_signed_file_url(upload_file_id=upload_file.id, as_attachment=True)
+        return file_helpers.get_signed_file_url(upload_file_id=upload_file.id, as_attachment=as_attachment)
 
     @staticmethod
     def enrich_documents_with_summary_index_status(
@@ -1824,11 +1827,20 @@ class DocumentService:
         """
         Normalize and validate `Document -> UploadFile` linkage for download flows.
         """
-        if document.data_source_type != DataSourceType.UPLOAD_FILE:
+        # Both UPLOAD_FILE and LOCAL_FILE (RAG pipeline local datasource)
+        # documents reference an UploadFile. UPLOAD_FILE stores the id under
+        # the "upload_file_id" key, while LOCAL_FILE stores it under
+        # "reference"; accept either so citation download/preview works for
+        # local-file documents such as scanned JPEGs.
+        if document.data_source_type == DataSourceType.UPLOAD_FILE:
+            data_source_info: dict[str, Any] = document.data_source_info_dict or {}
+            upload_file_id: str | None = data_source_info.get("upload_file_id")
+        elif document.data_source_type == DataSourceType.LOCAL_FILE:
+            data_source_info = document.data_source_info_dict or {}
+            upload_file_id = data_source_info.get("reference") or data_source_info.get("upload_file_id")
+        else:
             raise NotFound(invalid_source_message)
 
-        data_source_info: dict[str, Any] = document.data_source_info_dict or {}
-        upload_file_id: str | None = data_source_info.get("upload_file_id")
         if not upload_file_id:
             raise NotFound(missing_file_message)
 

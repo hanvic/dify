@@ -1174,7 +1174,13 @@ class DocumentDownloadApi(DocumentResource):
     ) -> dict[str, Any]:
         # Reuse the shared permission/tenant checks implemented in DocumentResource.
         document = self.get_document(session, str(dataset_id), str(document_id), current_user, current_tenant_id)
-        return UrlResponse(url=DocumentService.get_document_download_url(document, session)).model_dump(mode="json")
+        # as_attachment defaults to true (download). When an explicit
+        # "false" is requested the signed URL is resolved for inline viewing,
+        # so image documents can be previewed in-browser from the citation UI.
+        as_attachment = request.args.get("as_attachment", "true").lower() != "false"
+        return UrlResponse(
+            url=DocumentService.get_document_download_url(document, session, as_attachment=as_attachment)
+        ).model_dump(mode="json")
 
 
 @console_ns.route("/datasets/<uuid:dataset_id>/documents/download-zip")

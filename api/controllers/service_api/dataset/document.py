@@ -1219,7 +1219,9 @@ class DocumentDownloadApi(DatasetApiResource):
         if document.tenant_id != str(tenant_id):
             raise Forbidden("No permission.")
 
-        return UrlResponse(url=DocumentService.get_document_download_url(document, session)).model_dump(mode="json")
+        return UrlResponse(url=DocumentService.get_document_download_url(
+            document, session, as_attachment=request.args.get("as_attachment", "true").lower() != "false"
+        )).model_dump(mode="json")
 
 
 @service_api_ns.route("/datasets/<uuid:dataset_id>/documents/<uuid:document_id>")
