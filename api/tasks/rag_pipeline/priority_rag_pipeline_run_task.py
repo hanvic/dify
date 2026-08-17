@@ -136,6 +136,110 @@ def run_single_rag_pipeline_task(rag_pipeline_invoke_entity: Mapping[str, Any], 
                 if not workflow:
                     raise ValueError(f"Workflow {pipeline.workflow_id} not found")
 
+                # WORKAROUND: 워크플로우 DSL bug 우회.
+                # vlm_ocr Tool 노드의 tool_parameters 가 UI 빌더에 의해 비어 저장되는 경우가 있어,
+                # datasource 'file' 노드가 출력을 image_file 파라미터로 전달하도록 보정한다.
+                # 또한 general_chunker 의 delimiter 가 slash-escape 되는 케이스도 정규화한다.
+                try:
+                    graph_dict = workflow.graph_dict or {}
+                    nodes = graph_dict.get("nodes") or []
+                    datasource_id: str | None = None
+                    for node in nodes:
+                        if (node.get("data") or {}).get("type") == "datasource":
+                            datasource_id = node.get("id")
+                            break
+                    for node in nodes:
+                        data = node.get("data") or {}
+                        if data.get("type") == "tool" and data.get("tool_name") == "vlm_ocr":
+                            tool_params = data.get("tool_parameters") or {}
+                            needs_patch = False
+                            if "image_file" not in tool_params:
+                                needs_patch = True
+                            else:
+                                # 이미 있지만 잘못된 형태로 저장된 케이스도 보정
+                                image_file = tool_params["image_file"] or {}
+                                # Pydantic v2 ToolInput 가 MIXED 는 string, VARIABLE 은 list[str] 만 허용.
+                                # 잘못된 형태 (mixed value 가 dict 이거나 type 이 다른 enum)이면 교체.
+                                value = image_file.get("value")
+                                if image_file.get("type") == "variable":
+                                    if not isinstance(value, list) or not all(isinstance(v, str) for v in value):
+                                        needs_patch = True
+                                    else:
+                                        needs_patch = False
+                                else:
+                                    # mixed 이거나 type 누락/잘못된 enum 이면 VARIABLE 으로 강제.
+                                    needs_patch = True
+                            if needs_patch and datasource_id is not None:
+                                # VARIABLE 타입 value 는 list[str] (selector). datasource 의 file 출력 매핑.
+                                tool_params["image_file"] = {
+                                    "type": "variable",
+                                    "value": [datasource_id, "file"],
+                                }
+                                data["tool_parameters"] = tool_params
+                                logger.warning(
+                                    "Patched VLM OCR node %s with image_file -> [%s, file]",
+                                    node.get("id"),
+                                    datasource_id,
+                                )
+                        if data.get("type") == "tool" and data.get("tool_name") == "general_chunker":
+                            tool_params = data.get("tool_parameters") or {}
+                            delim = (tool_params.get("delimiter") or {}).get("value")
+                            if delim == "/n,/n/n":
+                                tool_params["delimiter"] = {"type": "mixed", "value": "\n,\n\n"}
+                                data["tool_parameters"] = tool_params
+                                logger.warning("Patched general_chunker delimiter to '\\n,\\n\\n'")
+                    # Mutating graph_dict in-place does not persist because it's stored as JSON.
+                    # workflow.graph_dict 는 hybrid_property 라 in-place 변경이 반영되지 않을 수 있다.
+                    # 명시적으로 graph 컬럼을 update 한다.
+                    workflow.graph = json.dumps(graph_dict, ensure_ascii=False)
+                    session.add(workflow)
+                    session.commit()
+                    logger.warning("Persisted patched workflow graph for workflow %s", workflow.id)
+                except Exception:
+                    logger.exception("Failed to patch workflow graph")
+
+                # DEBUG: dump graph nodes summary so we can inspect variable mappings.
+                try:
+                    graph_summary = {
+                        "pipeline_id": pipeline.id,
+                        "workflow_id": workflow.id,
+                        "version": workflow.version,
+                        "nodes": [
+                            {
+                                "id": node.get("id"),
+                                "type": node.get("data", {}).get("type"),
+                                "title": node.get("data", {}).get("title"),
+                                "chunk_structure": node.get("data", {}).get("chunk_structure"),
+                                "indexing_technique": node.get("data", {}).get("indexing_technique"),
+                                "index_chunk_variable_selector": node.get("data", {}).get(
+                                    "index_chunk_variable_selector"
+                                ),
+                                "tool_node_data": {
+                                    "tool_name": node.get("data", {}).get("tool_name"),
+                                    "provider_name": node.get("data", {}).get("provider_name"),
+                                    "tool_label": node.get("data", {}).get("tool_label"),
+                                    "tool_parameters": node.get("data", {}).get("tool_parameters"),
+                                    "tool_input_data": node.get("data", {}).get("tool_input_data"),
+                                    "param_values": node.get("data", {}).get("param_values"),
+                                    "variables": node.get("data", {}).get("variables"),
+                                    "plugin_id": node.get("data", {}).get("plugin_id"),
+                                },
+                                "outputs": node.get("data", {}).get("outputs"),
+                            }
+                            for node in (workflow.graph_dict or {}).get("nodes", [])
+                        ],
+                        "edges": [
+                            {"source": e.get("source"), "target": e.get("target")}
+                            for e in (workflow.graph_dict or {}).get("edges", [])
+                        ],
+                    }
+                    logger.warning(
+                        "DEBUG_RAG_PIPELINE_GRAPH %s",
+                        json.dumps(graph_summary, ensure_ascii=False, indent=2),
+                    )
+                except Exception:
+                    logger.exception("Failed to dump pipeline graph summary")
+
                 if workflow_execution_id is None:
                     workflow_execution_id = str(uuid.uuid4())
 
