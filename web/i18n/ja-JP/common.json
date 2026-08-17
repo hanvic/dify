@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "検索回数：",
   "chat.citation.hitScore": "検索スコア：",
   "chat.citation.linkToDataset": "ナレッジへのリンク",
+  "chat.citation.loadingPreview": "プレビューを読み込み中…",
   "chat.citation.title": "引用",
   "chat.citation.vectorHash": "ベクトルハッシュ：",
   "chat.conversationName": "会話名",

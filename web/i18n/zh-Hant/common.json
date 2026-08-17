@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "檢索次數：",
   "chat.citation.hitScore": "檢索得分：",
   "chat.citation.linkToDataset": "跳轉至知識庫",
+  "chat.citation.loadingPreview": "正在載入預覽…",
   "chat.citation.title": "引用",
   "chat.citation.vectorHash": "向量雜湊：",
   "chat.conversationName": "會話名稱",

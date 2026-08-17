@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Số lượt truy xuất:",
   "chat.citation.hitScore": "Điểm truy xuất:",
   "chat.citation.linkToDataset": "Liên kết tới Kiến thức",
+  "chat.citation.loadingPreview": "Đang tải xem trước…",
   "chat.citation.title": "THAM KHẢO",
   "chat.citation.vectorHash": "Vector hash:",
   "chat.conversationName": "Tên cuộc trò chuyện",

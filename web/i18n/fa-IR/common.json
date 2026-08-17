@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "تعداد بازیابی:",
   "chat.citation.hitScore": "امتیاز بازیابی:",
   "chat.citation.linkToDataset": "پیوند به دانش",
+  "chat.citation.loadingPreview": "بارگذاری پیش‌نمایش…",
   "chat.citation.title": "استنادها",
   "chat.citation.vectorHash": "هش بردار:",
   "chat.conversationName": "نام مکالمه",

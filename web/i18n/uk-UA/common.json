@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Кількість звернень:",
   "chat.citation.hitScore": "Оцінка звернення:",
   "chat.citation.linkToDataset": "Посилання на Знання",
+  "chat.citation.loadingPreview": "Завантаження попереднього перегляду…",
   "chat.citation.title": "ЦИТАТИ",
   "chat.citation.vectorHash": "Хеш вектора:",
   "chat.conversationName": "Назва розмови",

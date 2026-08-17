@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "召回次数：",
   "chat.citation.hitScore": "召回得分：",
   "chat.citation.linkToDataset": "跳转至知识库",
+  "chat.citation.loadingPreview": "正在加载预览…",
   "chat.citation.title": "引用",
   "chat.citation.vectorHash": "向量哈希：",
   "chat.conversationName": "会话名称",

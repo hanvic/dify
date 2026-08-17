@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "검색 횟수:",
   "chat.citation.hitScore": "검색 점수:",
   "chat.citation.linkToDataset": "지식 링크",
+  "chat.citation.loadingPreview": "미리보기 불러오는 중…",
   "chat.citation.title": "인용",
   "chat.citation.vectorHash": "벡터 해시:",
   "chat.conversationName": "대화 이름",

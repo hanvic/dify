@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Retrieval count:",
   "chat.citation.hitScore": "Retrieval Score:",
   "chat.citation.linkToDataset": "Link to Knowledge",
+  "chat.citation.loadingPreview": "Loading preview…",
   "chat.citation.title": "CITATIONS",
   "chat.citation.vectorHash": "Vector hash:",
   "chat.conversationName": "Conversation name",

@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Conteo de recuperaciones:",
   "chat.citation.hitScore": "Puntuación de recuperación:",
   "chat.citation.linkToDataset": "Enlace al Conocimiento",
+  "chat.citation.loadingPreview": "Cargando vista previa…",
   "chat.citation.title": "CITAS",
   "chat.citation.vectorHash": "Hash de vector:",
   "chat.conversationName": "Nombre de la conversación",

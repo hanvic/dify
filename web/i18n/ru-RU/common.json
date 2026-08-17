@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Количество совпадений:",
   "chat.citation.hitScore": "Оценка совпадения:",
   "chat.citation.linkToDataset": "Ссылка на знания",
+  "chat.citation.loadingPreview": "Загрузка предпросмотра…",
   "chat.citation.title": "ЦИТАТЫ",
   "chat.citation.vectorHash": "Векторный хэш:",
   "chat.conversationName": "Название разговора",

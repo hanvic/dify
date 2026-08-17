@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Număr de recuperări:",
   "chat.citation.hitScore": "Scor de recuperare:",
   "chat.citation.linkToDataset": "Legătură la Cunoștințe",
+  "chat.citation.loadingPreview": "Se încarcă previzualizarea…",
   "chat.citation.title": "CITĂRI",
   "chat.citation.vectorHash": "Hash vector:",
   "chat.conversationName": "Nume conversație",

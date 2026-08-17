@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "จํานวนการดึงข้อมูล:",
   "chat.citation.hitScore": "คะแนนการดึงข้อมูล:",
   "chat.citation.linkToDataset": "ลิงค์สู่ความรู้",
+  "chat.citation.loadingPreview": "กำลังโหลดตัวอย่าง…",
   "chat.citation.title": "อ้าง อิง",
   "chat.citation.vectorHash": "แฮชเวกเตอร์:",
   "chat.conversationName": "ชื่อการสนทนา",

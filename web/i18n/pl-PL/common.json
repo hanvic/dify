@@ -111,6 +111,7 @@
   "chat.citation.hitCount": "Liczba trafień:",
   "chat.citation.hitScore": "Wynik trafień:",
   "chat.citation.linkToDataset": "Link do Wiedzy",
+  "chat.citation.loadingPreview": "Ładowanie podglądu…",
   "chat.citation.title": "Cytaty",
   "chat.citation.vectorHash": "Wektor hash:",
   "chat.conversationName": "Nazwa rozmowy",
