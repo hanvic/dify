@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 
 from configs import dify_config
 from core.errors.error import QuotaExceededError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_redis import redis_client
 from models import TenantCreditPool
 from models.enums import ProviderQuotaType

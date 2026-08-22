@@ -5,7 +5,8 @@ from dataclasses import dataclass
 from typing import Protocol, override
 
 from configs import dify_config
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services.billing_service import BillingService, SubscriptionPlan
 
 logger = logging.getLogger(__name__)

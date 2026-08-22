@@ -31,7 +31,7 @@ from controllers.console.workspace.members import (
     SendOwnerTransferEmailApi,
     _count_new_member_invites,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.external_api import ExternalApi
 from machinery.context import RequestContext
 from services.errors.account import AccountAlreadyInTenantError, SeatsLimitExceededError

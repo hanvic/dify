@@ -46,7 +46,8 @@ from sqlalchemy import inspect, select
 from sqlalchemy.orm import Session, sessionmaker
 
 from configs import dify_config
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from graphon.enums import WorkflowType
 from libs.archive_storage import (

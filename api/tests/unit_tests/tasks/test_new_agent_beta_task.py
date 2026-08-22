@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 import pytest
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.agent import AgentConfigRevision, AgentConfigRevisionOperation
 from services.billing_service import BillingService
 from tasks import new_agent_beta_task as task_module

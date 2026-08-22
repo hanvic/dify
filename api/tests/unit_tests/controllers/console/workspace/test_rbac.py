@@ -26,7 +26,7 @@ from werkzeug.exceptions import Forbidden, NotFound
 from configs import dify_config
 from controllers.console.workspace import rbac as rbac_mod
 from controllers.console.workspace.rbac import _RolesListQuery
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import Account
 
 

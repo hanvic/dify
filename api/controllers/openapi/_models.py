@@ -7,7 +7,7 @@ from typing import Any, Final, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.helper import EmailStr, UUIDStr, UUIDStrOrEmpty, uuid_value
 from models.model import AppMode
 

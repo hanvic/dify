@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.workflow.queue_dispatcher import (
     ProfessionalQueueDispatcher,
     QueueDispatcherManager,

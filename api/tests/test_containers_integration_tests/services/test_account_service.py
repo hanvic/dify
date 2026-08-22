@@ -9,7 +9,7 @@ from werkzeug.exceptions import Unauthorized
 
 from configs import dify_config
 from controllers.console.error import AccountNotFound, NotAllowedCreateWorkspace
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import AccountStatus, App, Dataset, TenantAccountJoin, TenantStatus
 from services.account_service import AccountService, RegisterService, TenantService, TokenPair
 from services.errors.account import (

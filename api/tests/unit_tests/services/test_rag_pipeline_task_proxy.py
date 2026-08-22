@@ -7,7 +7,7 @@ import pytest
 
 from core.app.entities.rag_pipeline_invoke_entities import RagPipelineInvokeEntity
 from core.rag.pipeline.queue import TenantIsolatedTaskQueue
-from enums import CloudPlan
+from enums.cloud_plan import CloudPlan
 from extensions.storage.storage_type import StorageType
 from models.enums import CreatorUserRole
 from models.model import UploadFile

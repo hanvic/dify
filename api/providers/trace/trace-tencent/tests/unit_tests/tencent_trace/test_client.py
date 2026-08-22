@@ -16,7 +16,7 @@ from dify_trace_tencent.entities.tencent_trace_entity import SpanData
 from opentelemetry.sdk.trace import Event
 from opentelemetry.trace import SpanContext, Status, StatusCode, TraceFlags
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 metric_reader_instances: list[DummyMetricReader] = []
 meter_provider_instances: list[DummyMeterProvider] = []

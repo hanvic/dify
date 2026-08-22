@@ -10,7 +10,7 @@ import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.model import AccountTrialAppRecord, App, AppMode, TrialApp
 from services import recommended_app_service as service_module
 from services.recommended_app_service import RecommendedAppService

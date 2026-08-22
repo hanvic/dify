@@ -13,7 +13,7 @@ from controllers.console import console_ns
 from controllers.console import wraps as console_wraps
 from controllers.console.app import workflow_comment as workflow_comment_module
 from controllers.console.app import wraps as app_wraps
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs import login as login_lib
 from models import App, Tenant, WorkflowComment, WorkflowCommentMention, WorkflowCommentReply
 from models.account import Account, AccountStatus, TenantAccountRole

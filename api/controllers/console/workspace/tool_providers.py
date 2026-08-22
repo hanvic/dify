@@ -61,7 +61,7 @@ from core.tools.entities.tool_entities import (
     ToolProviderType,
     WorkflowToolParameterConfiguration,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from fields.base import ResponseModel
 from libs.helper import alphanumeric, dump_response, uuid_value

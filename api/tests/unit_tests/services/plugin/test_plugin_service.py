@@ -18,7 +18,7 @@ from core.plugin.entities.plugin_daemon import (
     PluginModelProviderEntity,
 )
 from core.provider_manager import ProviderConfigurationCacheSource, ProviderManager
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.entities.common_entities import I18nObject
 from graphon.model_runtime.entities.provider_entities import ConfigurateMethod, ProviderEntity
 from models.provider import Provider, ProviderCredential, ProviderType, TenantPreferredModelProvider

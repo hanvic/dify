@@ -9,7 +9,7 @@ from werkzeug.exceptions import BadRequest, UnprocessableEntity
 
 from controllers.console import wraps as console_wraps
 from controllers.console.billing.billing import PartnerTenants
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, Tenant, TenantAccountJoin, TenantAccountRole
 from models.model import DifySetup
 

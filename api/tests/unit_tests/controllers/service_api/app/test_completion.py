@@ -42,7 +42,8 @@ from controllers.service_api.app.error import (
 )
 from core.app.apps.agent_app.errors import AgentAppNotPublishedError
 from core.errors.error import QuotaExceededError
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.errors.invoke import InvokeError
 from models.base import TypeBase
 from models.enums import ConversationFromSource, EndUserType

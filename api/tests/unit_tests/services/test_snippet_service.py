@@ -9,7 +9,7 @@ import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session, sessionmaker
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.storage.storage_type import StorageType
 from graphon.variables.segments import StringSegment
 from graphon.variables.types import SegmentType

@@ -32,7 +32,7 @@ from controllers.openapi.auth.verify import (
     check_workspace_mismatch,
     check_workspace_role,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import TokenType
 
 account_pipeline = AuthPipeline(

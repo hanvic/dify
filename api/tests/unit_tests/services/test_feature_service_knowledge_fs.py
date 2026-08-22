@@ -1,6 +1,6 @@
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.entities.feature_entities import SystemFeatureModel
 from services.feature_service import FeatureService
 

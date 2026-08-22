@@ -13,7 +13,7 @@ import pytest
 from redis import RedisError
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import TenantAccountJoin
 from services.enterprise.account_deletion_sync import (
     _queue_task,

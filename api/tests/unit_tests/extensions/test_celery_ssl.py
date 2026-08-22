@@ -3,7 +3,7 @@
 import ssl
 from unittest.mock import MagicMock, patch
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 class TestCelerySSLConfiguration:

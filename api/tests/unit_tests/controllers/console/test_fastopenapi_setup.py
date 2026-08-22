@@ -10,7 +10,7 @@ from controllers.console import setup as setup_controller
 from controllers.console import wraps
 from controllers.console.error import AlreadySetupError, NotInitValidateError
 from dify_app import DifyApp
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions import ext_fastopenapi
 from services.setup_service import (
     InitializationValidationRequiredError,

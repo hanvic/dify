@@ -15,7 +15,7 @@ import logging
 from typing import TYPE_CHECKING
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 if TYPE_CHECKING:
     from dify_app import DifyApp

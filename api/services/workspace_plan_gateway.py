@@ -5,7 +5,8 @@ from collections.abc import Mapping, Sequence
 from typing import override
 
 from configs import dify_config
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services.billing_service import BillingService
 from services.feature_service import FeatureService
 from services.workspace_query_service import WorkspacePlanGateway

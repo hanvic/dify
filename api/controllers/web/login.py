@@ -31,7 +31,7 @@ from controllers.console.wraps import (
 )
 from controllers.web import web_ns
 from controllers.web.wraps import decode_jwt_token
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from libs.helper import EmailStr, extract_remote_ip
 from libs.passport import PassportService

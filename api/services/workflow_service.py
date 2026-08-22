@@ -50,7 +50,8 @@ from core.workflow.system_variables import build_bootstrap_variables, build_syst
 from core.workflow.variable_pool_initializer import add_node_inputs_to_pool, add_variables_to_pool
 from core.workflow.workflow_entry import WorkflowEntry
 from enterprise.telemetry.draft_trace import enqueue_draft_node_execution_trace
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from events.app_event import app_draft_workflow_was_synced, app_published_workflow_was_updated
 from extensions.ext_database import db
 from extensions.ext_storage import storage
@@ -694,7 +695,7 @@ class WorkflowService:
         )
 
         # Validate credentials before publishing, for credential policy check
-        from services.feature_service import FeatureService
+        from services.entities.feature_entities import FeatureService
 
         if FeatureService.is_plugin_manager_enabled():
             self._validate_workflow_credentials(draft_workflow, session=session)

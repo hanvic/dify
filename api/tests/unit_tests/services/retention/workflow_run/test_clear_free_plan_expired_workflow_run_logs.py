@@ -8,7 +8,8 @@ from unittest.mock import MagicMock, patch
 import pytest
 from sqlalchemy.orm import Session
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from repositories.api_workflow_run_repository import WorkflowRunCleanupRef
 from services.retention.workflow_run.clear_free_plan_expired_workflow_run_logs import WorkflowRunCleanup
 

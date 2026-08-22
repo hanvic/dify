@@ -42,7 +42,8 @@ from controllers.service_api.app.workflow import (
 )
 from controllers.web.error import InvokeRateLimitError as InvokeRateLimitHttpError
 from core.app.entities.app_invoke_entities import InvokeFrom
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from graphon.enums import WorkflowExecutionStatus
 from models import Account
 from models.enums import CreatorUserRole, WorkflowRunTriggeredFrom

@@ -5,7 +5,8 @@ import uuid
 from dataclasses import dataclass, field
 
 from configs import dify_config
-from enums import DeploymentEdition, QuotaType
+from enums.deployment_edition import DeploymentEdition
+from enums.quota_type import QuotaType
 
 logger = logging.getLogger(__name__)
 

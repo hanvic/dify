@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import MINTABLE_PROFILES, Scope, SubjectType
 from services.openapi.mint_policy import MintPolicyViolation, validate_mint_policy
 

@@ -42,7 +42,7 @@ from enterprise.telemetry.id_generator import (
     set_correlation_id,
     set_span_id_source,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 logger = logging.getLogger(__name__)
 

@@ -8,7 +8,7 @@ from faker import Faker
 from sqlalchemy.orm import Session
 
 from core.app.entities.app_invoke_entities import InvokeFrom
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import App
 from models.enums import EndUserType
 from models.model import EndUser

@@ -6,7 +6,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from configs import dify_config
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from models.account import Tenant, TenantAccountJoin, TenantAccountRole
 from services.account_service import TenantService
 from services.billing_service import BillingService

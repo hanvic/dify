@@ -14,7 +14,7 @@ from controllers.console.auth import activate as activate_module
 from controllers.console.auth.activate import ActivateApi, ActivateCheckApi
 from controllers.console.auth.error import InvitationAccountMismatchError
 from controllers.console.error import AccountInFreezeError, AlreadyActivateError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, AccountStatus, Tenant, TenantAccountJoin, TenantAccountRole
 
 

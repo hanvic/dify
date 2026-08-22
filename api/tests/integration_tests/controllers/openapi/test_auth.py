@@ -12,7 +12,7 @@ import pytest
 from flask import Flask
 from flask.testing import FlaskClient
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from models import App, Tenant
 

@@ -18,7 +18,7 @@ from sqlalchemy.orm import Session, scoped_session, sessionmaker
 from core.tools.entities.api_entities import ToolProviderApiEntity as CoreToolProviderApiEntity
 from core.tools.entities.common_entities import I18nObject
 from core.tools.entities.tool_entities import ToolParameter
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import Account, BuiltinToolProvider, Tenant, TenantAccountJoin
 from models.account import TenantAccountRole
 from models.credential_permission import CredentialPermission

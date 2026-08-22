@@ -22,7 +22,7 @@ from core.tools.entities.common_entities import I18nObject
 from core.tools.entities.tool_entities import ToolEntity, ToolIdentity, ToolInvokeMessage, ToolProviderType
 from core.tools.errors import ToolInvokeError
 from core.tools.mcp_tool.tool import MCPTool
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 def _build_mcp_tool(*, with_output_schema: bool = True) -> MCPTool:

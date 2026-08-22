@@ -10,7 +10,7 @@ with appropriate queue routing and priority assignment.
 from enum import StrEnum
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.billing_service import BillingService
 
 

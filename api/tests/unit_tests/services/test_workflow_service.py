@@ -23,7 +23,7 @@ from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from core.workflow.llm_environment_variable import LLMEnvironmentVariable
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.enums import (
     BuiltinNodeTypes,
     ErrorStrategy,

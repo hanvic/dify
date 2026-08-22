@@ -35,7 +35,7 @@ from controllers.console.wraps import (
     with_current_user,
     with_current_user_id,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.login import AccountWithTenant
 from machinery.context import RequestContext
 from models import Account

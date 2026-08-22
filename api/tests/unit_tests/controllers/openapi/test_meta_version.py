@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 def test_version_endpoint_returns_200_without_auth(openapi_app):

@@ -38,7 +38,8 @@ from controllers.console.workspace.workspace import (
     WorkspacePermissionApi,
     WorkspacePermissionResponse,
 )
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from libs.datetime_utils import naive_utc_now
 from machinery.context import RequestContext
 from models.account import Account, Tenant, TenantAccountJoin, TenantCustomConfigDict, TenantStatus

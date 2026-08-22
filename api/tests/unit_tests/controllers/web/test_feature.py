@@ -9,7 +9,7 @@ from flask import Flask
 from pytest_mock import MockerFixture
 
 from controllers.web.feature import SystemFeatureApi
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.entities.feature_entities import SystemFeatureModel
 from services.feature_query_service import FeatureQueryService
 

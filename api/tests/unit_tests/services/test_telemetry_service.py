@@ -7,7 +7,7 @@ import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.model import DifySetup
 from services import telemetry_service
 from services.telemetry_service import CommunityTelemetryService

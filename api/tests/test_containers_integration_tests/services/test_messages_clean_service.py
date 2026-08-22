@@ -10,7 +10,8 @@ import pytest
 from faker import Faker
 from sqlalchemy.orm import Session
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_redis import redis_client
 from graphon.file import FileType
 from models.account import Account, Tenant, TenantAccountJoin, TenantAccountRole

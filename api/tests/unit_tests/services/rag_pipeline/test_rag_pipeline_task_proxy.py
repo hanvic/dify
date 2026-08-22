@@ -5,7 +5,7 @@ from unittest.mock import Mock
 import pytest
 from pytest_mock import MockerFixture
 
-from enums import CloudPlan
+from enums.cloud_plan import CloudPlan
 from extensions.storage.storage_type import StorageType
 from models.enums import CreatorUserRole
 from models.model import UploadFile

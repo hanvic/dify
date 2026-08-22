@@ -15,7 +15,8 @@ from core.rag.datasource.vdb.vector_type import VectorType
 from core.rag.embedding.cached_embedding import CacheEmbedding
 from core.rag.index_processor.constant.index_type import IndexStructureType, IndexTechniqueType
 from core.rag.models.document import Document
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_redis import redis_client
 from graphon.model_runtime.entities.model_entities import ModelType
 from models.dataset import Dataset

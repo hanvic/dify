@@ -10,7 +10,7 @@ from controllers.console import console_ns
 from controllers.console.auth.error import InvitationAccountMismatchError
 from controllers.console.error import AccountInFreezeError, AlreadyActivateError
 from controllers.console.wraps import model_validate
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from libs.datetime_utils import naive_utc_now
 from libs.helper import EmailStr, timezone

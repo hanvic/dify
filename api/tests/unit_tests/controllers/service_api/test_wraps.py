@@ -23,7 +23,8 @@ from controllers.service_api.wraps import (
     validate_app_token,
     validate_dataset_token,
 )
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from models import Account, Tenant, TenantAccountJoin
 from models.account import TenantAccountRole
 from models.dataset import Dataset, RateLimitLog

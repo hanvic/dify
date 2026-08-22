@@ -4,7 +4,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services.retention.conversation.messages_clean_policy import (
     BillingDisabledPolicy,
     BillingSandboxPolicy,

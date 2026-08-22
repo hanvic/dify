@@ -12,7 +12,8 @@ from configs import dify_config
 from core.rag.datasource.vdb.vector_type import VectorType
 from core.rag.index_processor.constant.index_type import IndexStructureType, IndexTechniqueType
 from core.rag.models.document import AttachmentDocument, ChildDocument, Document
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from models.dataset import Dataset
 from services.vector_space_admission_service import (
     VECTOR_SPACE_ADMISSION_ERROR_CODE,

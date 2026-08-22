@@ -4,7 +4,7 @@ from unittest.mock import Mock, patch
 import pytest
 from werkzeug.exceptions import Forbidden
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.workspace_permission import (
     check_workspace_member_invite_permission,
     check_workspace_owner_transfer_permission,

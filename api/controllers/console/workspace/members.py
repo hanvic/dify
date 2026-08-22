@@ -32,7 +32,7 @@ from controllers.console.wraps import (
     setup_required,
     with_current_user,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_application_services import application_services
 from extensions.ext_database import db
 from extensions.ext_redis import redis_client

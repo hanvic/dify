@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 from configs import dify_config
 from controllers.web import site as site_module
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.storage.storage_type import StorageType
 from models.model import AppMode, IconType, Site
 from services.entities.feature_entities import FeatureModel

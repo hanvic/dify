@@ -1,6 +1,6 @@
 from configs import dify_config
 from dify_app import DifyApp
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 def init_app(app: DifyApp):

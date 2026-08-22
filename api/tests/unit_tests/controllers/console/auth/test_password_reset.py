@@ -23,7 +23,7 @@ from controllers.console.auth.forgot_password import (
     ForgotPasswordSendEmailApi,
 )
 from controllers.console.error import AccountNotFound, EmailSendIpLimitError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, Tenant, TenantAccountJoin
 from services.entities.feature_entities import SystemFeatureModel
 

@@ -8,7 +8,7 @@ import pyarrow.parquet as pq
 import pytest
 from sqlalchemy.exc import OperationalError
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.workflow import WorkflowRunArchiveBundle
 from services.retention.workflow_run.archive_paid_plan_workflow_run import (
     ArchiveResult,

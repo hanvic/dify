@@ -25,7 +25,7 @@ from sqlalchemy.orm import Session
 from werkzeug.exceptions import Forbidden, ServiceUnavailable, Unauthorized
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from extensions.ext_redis import redis_client
 from libs.rate_limit import enforce_bearer_rate_limit

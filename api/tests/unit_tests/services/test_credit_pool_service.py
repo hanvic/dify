@@ -10,7 +10,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from core.errors.error import QuotaExceededError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import TenantCreditPool
 from models.enums import ProviderQuotaType
 from services.credit_pool_service import (

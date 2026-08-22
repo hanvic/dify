@@ -8,7 +8,7 @@ from pydantic_settings import BaseSettings, PydanticBaseSettingsSource
 from yarl import URL
 
 from configs.app_config import DifyConfig
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 class _IsolatedDifyConfig(DifyConfig):

@@ -22,7 +22,7 @@ from functools import wraps
 from werkzeug.exceptions import Forbidden
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.entities.feature_entities import LicenseStatus
 from services.feature_service import FeatureService
 

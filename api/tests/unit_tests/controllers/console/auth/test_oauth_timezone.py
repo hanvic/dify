@@ -4,7 +4,7 @@ import pytest
 from flask import Flask
 
 from controllers.console.auth.oauth import OAuthLogin, _generate_account
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth import OAuthUserInfo
 from services.errors.account import AccountRegisterError
 

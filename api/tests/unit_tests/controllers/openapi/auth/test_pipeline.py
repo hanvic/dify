@@ -7,7 +7,7 @@ from werkzeug.exceptions import Forbidden, NotFound, Unauthorized
 
 from controllers.openapi.auth.data import AuthData
 from controllers.openapi.auth.pipeline import AuthPipeline, PipelineRoute, PipelineRouter
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import Scope, TokenType
 
 

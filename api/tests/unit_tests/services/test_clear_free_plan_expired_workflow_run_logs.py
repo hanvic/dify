@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from repositories.api_workflow_run_repository import WorkflowRunCleanupRef
 from services.billing_service import SubscriptionPlan
 from services.retention.workflow_run import clear_free_plan_expired_workflow_run_logs as cleanup_module

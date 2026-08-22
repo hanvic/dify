@@ -22,7 +22,8 @@ from controllers.service_api.schema import (
     USER_QUERY_PARAM,
     USER_REQUIRED_ATTR,
 )
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from extensions.ext_redis import redis_client
 from libs.login import current_user

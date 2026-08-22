@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 class DeploymentConfig(BaseSettings):

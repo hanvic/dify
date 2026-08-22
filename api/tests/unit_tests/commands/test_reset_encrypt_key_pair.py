@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 import commands
 from commands import system as system_commands
 from core.tools.entities.tool_entities import ApiProviderSchemaType
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.entities.model_entities import ModelType
 from models import Tenant
 from models.provider import Provider, ProviderModel, ProviderType

@@ -38,7 +38,7 @@ from controllers.console.wraps import (
     with_current_tenant_id,
     with_current_user,
 )
-from enums import CloudPlan
+from enums.cloud_plan import CloudPlan
 from extensions.ext_application_services import application_services
 from extensions.ext_database import db
 from fields.base import ResponseModel

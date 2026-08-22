@@ -36,7 +36,7 @@ from controllers.console.workspace.error import (
     CurrentPasswordIncorrectError,
     InvalidAccountDeletionCodeError,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.storage.storage_type import StorageType
 from models import Account, AccountIntegrate, InvitationCode, Tenant, TenantAccountJoin
 from models.account import AccountStatus, InvitationCodeStatus, TenantAccountRole

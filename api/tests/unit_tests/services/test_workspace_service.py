@@ -1,7 +1,8 @@
 from types import SimpleNamespace
 from unittest.mock import MagicMock, call, patch
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from models.account import Tenant
 from services.credit_pool_service import CreditPoolBalance
 from services.workspace_service import WorkspaceService

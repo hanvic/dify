@@ -4,7 +4,9 @@ from collections.abc import Mapping
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from configs import dify_config
-from enums import CloudPlan, DeploymentEdition, HostedTrialProvider
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
+from enums.hosted_provider import HostedTrialProvider
 from services.billing_service import BillingInfo, BillingService
 from services.enterprise.enterprise_service import EnterpriseService
 from services.entities import feature_entities

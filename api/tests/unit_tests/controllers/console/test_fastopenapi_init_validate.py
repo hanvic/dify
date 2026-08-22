@@ -7,7 +7,7 @@ import pytest
 
 from controllers.console import init_validate
 from dify_app import DifyApp
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions import ext_fastopenapi
 from services.init_validation_service import (
     AlreadyInitializedError,

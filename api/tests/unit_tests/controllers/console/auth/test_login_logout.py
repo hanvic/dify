@@ -29,7 +29,7 @@ from controllers.console.error import (
     SeatsLimitExceeded,
     WorkspacesLimitExceeded,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.entities.auth_entities import LoginFailureReason
 from services.errors.account import AccountLoginError, AccountPasswordError, SeatsLimitExceededError
 

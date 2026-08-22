@@ -8,7 +8,7 @@ from flask import Flask
 
 from controllers.console import init_validate, wraps
 from controllers.console.error import AlreadySetupError, InitValidateFailedError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.init_validation_service import (
     AlreadyInitializedError,
     InitValidationService,

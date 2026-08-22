@@ -13,7 +13,7 @@ from controllers.openapi.auth.verify import (
     check_workspace_role,
 )
 from core.rbac import RBACPermission, RBACResourceScope
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import Scope, TokenType
 from models.account import TenantAccountRole
 from services.enterprise.enterprise_service import WebAppAccessMode

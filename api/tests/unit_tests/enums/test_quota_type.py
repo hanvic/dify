@@ -4,7 +4,8 @@ from unittest.mock import patch
 
 import pytest
 
-from enums import DeploymentEdition, QuotaType
+from enums.deployment_edition import DeploymentEdition
+from enums.quota_type import QuotaType
 from services.quota_service import QuotaCharge, QuotaService, unlimited
 
 

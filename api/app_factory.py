@@ -14,7 +14,7 @@ from contexts.wrapper import RecyclableContextVar
 from controllers.console.error import UnauthorizedAndForceLogout
 from core.logging.context import init_request_context
 from dify_app import DifyApp
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_socketio import sio
 from services.enterprise.enterprise_service import EnterpriseService
 from services.entities.feature_entities import LicenseStatus

@@ -2,7 +2,8 @@ from unittest.mock import Mock
 
 import pytest
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services import feature_service as feature_service_module
 from services.feature_service import FeatureService
 

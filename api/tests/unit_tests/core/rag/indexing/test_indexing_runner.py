@@ -67,7 +67,7 @@ from core.indexing_runner import (
 )
 from core.rag.index_processor.constant.index_type import IndexStructureType, IndexTechniqueType
 from core.rag.models.document import ChildDocument, Document
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.storage.storage_type import StorageType
 from graphon.model_runtime.entities.model_entities import ModelType
 from libs.datetime_utils import naive_utc_now

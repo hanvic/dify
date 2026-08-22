@@ -11,7 +11,7 @@ from werkzeug.exceptions import Forbidden
 
 from configs import dify_config
 from controllers.web.site import AppSiteApi, WebAppSiteResponse, WebModelConfigResponse
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.storage.storage_type import StorageType
 from models import Tenant, TenantStatus
 from models.account import TenantCustomConfigDict

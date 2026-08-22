@@ -24,7 +24,7 @@ from controllers.openapi._models import (
 from controllers.openapi.apps import build_app_describe_response
 from controllers.openapi.auth.composition import auth_router
 from controllers.openapi.auth.data import AuthData
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import Scope, TokenType
 from models import App
 from models.enums import AppStatus

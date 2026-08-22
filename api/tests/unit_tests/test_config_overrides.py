@@ -5,7 +5,7 @@ from collections.abc import Callable
 import pytest
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 
 def test_config_overrides_updates_shared_config(config_overrides: Callable[..., None]) -> None:

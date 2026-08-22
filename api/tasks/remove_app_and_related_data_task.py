@@ -13,7 +13,7 @@ from sqlalchemy.orm import sessionmaker
 
 from configs import dify_config
 from core.db.session_factory import session_factory
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from libs.archive_storage import ArchiveStorageNotConfiguredError, get_archive_storage
 from models import (

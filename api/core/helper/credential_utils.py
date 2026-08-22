@@ -69,7 +69,7 @@ def check_credential_policy_compliance(
         CheckCredentialPolicyComplianceRequest,
         PluginManagerService,
     )
-    from services.feature_service import FeatureService
+    from services.entities.feature_entities import FeatureService
 
     if not FeatureService.is_plugin_manager_enabled() or not credential_id:
         return

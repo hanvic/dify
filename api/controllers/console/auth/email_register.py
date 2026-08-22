@@ -15,7 +15,7 @@ from controllers.console.auth.error import (
     InvalidTokenError,
     PasswordMismatchError,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from fields.base import ResponseModel
 from libs.helper import EmailStr, extract_remote_ip

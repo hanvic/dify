@@ -24,7 +24,8 @@ from pytest_mock import MockerFixture
 
 import services.app_generate_service as ags_module
 from core.app.entities.app_invoke_entities import InvokeFrom
-from enums import DeploymentEdition, QuotaType
+from enums.deployment_edition import DeploymentEdition
+from enums.quota_type import QuotaType
 from models.model import AppMode
 from services.app_generate_service import AppGenerateService
 from services.errors.app import WorkflowIdFormatError, WorkflowNotFoundError

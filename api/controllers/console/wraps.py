@@ -18,7 +18,8 @@ from controllers.common.wraps import (
 )
 from controllers.console.auth.error import AuthenticationFailedError, EmailCodeError
 from controllers.console.workspace.error import AccountNotInitializedError
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from extensions.ext_redis import redis_client
 from libs.encryption import FieldEncryption

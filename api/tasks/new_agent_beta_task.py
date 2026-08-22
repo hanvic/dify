@@ -6,7 +6,7 @@ from sqlalchemy import event, select
 from sqlalchemy.orm import Session
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.agent import AgentConfigRevision, AgentConfigRevisionOperation
 from services.billing_service import BillingService
 

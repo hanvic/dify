@@ -20,7 +20,7 @@ from sqlalchemy.orm import Session
 from core.plugin.entities.plugin import PluginInstallationSource
 from core.plugin.entities.plugin_daemon import PluginVerification
 from core.plugin.plugin_service import PluginService
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import ProviderType
 from models.engine import db
 from models.provider import Provider, ProviderCredential, TenantPreferredModelProvider

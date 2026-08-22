@@ -7,7 +7,8 @@ import pytest
 from faker import Faker
 from sqlalchemy.orm import Session
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from models import Account, Tenant, TenantAccountJoin, TenantAccountRole
 from services.credit_pool_service import CreditPoolBalance
 from services.workspace_service import WorkspaceService

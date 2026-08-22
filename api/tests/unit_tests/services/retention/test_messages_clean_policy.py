@@ -1,7 +1,7 @@
 import datetime
 from unittest.mock import MagicMock, patch
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.retention.conversation.messages_clean_policy import (
     BillingDisabledPolicy,
     BillingSandboxPolicy,

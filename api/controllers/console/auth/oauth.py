@@ -12,7 +12,7 @@ from configs import dify_config
 from constants.languages import languages
 from controllers.common.fields import RedirectResponse
 from controllers.common.schema import query_params_from_model, register_response_schema_model, register_schema_models
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from libs.datetime_utils import naive_utc_now
 from libs.helper import extract_remote_ip

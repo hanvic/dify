@@ -13,7 +13,7 @@ from controllers.console.auth.forgot_password import (
     ForgotPasswordResetApi,
     ForgotPasswordSendEmailApi,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account
 from models.engine import db
 from services.entities.feature_entities import SystemFeatureModel

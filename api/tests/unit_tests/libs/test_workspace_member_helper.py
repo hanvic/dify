@@ -12,7 +12,7 @@ from sqlalchemy import event
 from sqlalchemy.orm import Session
 from werkzeug.exceptions import Forbidden
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs import oauth_bearer
 from libs.oauth_bearer import AuthContext, Scope, SubjectType, TokenType, require_workspace_member
 from models.account import Account, AccountStatus, Tenant, TenantAccountJoin, TenantAccountRole

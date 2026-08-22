@@ -34,7 +34,7 @@ from core.rag.splitter.fixed_text_splitter import (
 )
 from core.rag.splitter.text_splitter import TextSplitter
 from core.tools.utils.web_reader_tool import get_image_upload_file_ids
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_redis import redis_client
 from extensions.ext_storage import storage
 from graphon.model_runtime.entities.model_entities import ModelType

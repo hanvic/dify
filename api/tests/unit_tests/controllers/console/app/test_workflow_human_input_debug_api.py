@@ -10,7 +10,7 @@ from pydantic import ValidationError
 from controllers.console import wraps as console_wraps
 from controllers.console.app import workflow as workflow_module
 from controllers.console.app import wraps as app_wraps
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs import login as login_lib
 from models import App, Tenant
 from models.account import Account, AccountStatus, TenantAccountRole

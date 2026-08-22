@@ -10,7 +10,7 @@ import pytest
 from sqlalchemy import event, select
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.entities.model_entities import ModelType
 from models import Account, Tenant
 from models.account import TenantAccountJoin, TenantAccountRole

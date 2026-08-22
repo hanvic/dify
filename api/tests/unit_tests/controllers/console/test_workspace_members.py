@@ -7,7 +7,7 @@ from flask import Flask, g
 
 from controllers.console.workspace.error import InvalidMemberRoleError
 from controllers.console.workspace.members import MemberInviteEmailApi
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, TenantAccountRole
 
 

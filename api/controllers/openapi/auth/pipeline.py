@@ -25,7 +25,7 @@ from controllers.openapi.auth.data import (
     RequestContext,
 )
 from controllers.openapi.auth.flow import When
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import (
     AuthContext,
     Scope,

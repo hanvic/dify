@@ -36,7 +36,7 @@ from controllers.console.error import (
     NotAllowedCreateWorkspace,
     WorkspacesLimitExceeded,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.errors.account import AccountRegisterError
 from services.turnstile_service import TurnstileChallengeRejectedError, TurnstileUpstreamError
 

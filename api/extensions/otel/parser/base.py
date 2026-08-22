@@ -15,7 +15,7 @@ from opentelemetry.trace.status import Status, StatusCode
 from pydantic import BaseModel
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.otel.semconv.gen_ai import ChainAttributes, GenAIAttributes
 from graphon.enums import BuiltinNodeTypes
 from graphon.file import File

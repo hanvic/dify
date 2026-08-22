@@ -1,6 +1,6 @@
 from pytest_mock import MockerFixture
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.entities.feature_entities import FeatureModel, SystemFeatureModel
 from services.feature_service import FeatureService
 from services.feature_service_gateway import FeatureServiceGateway

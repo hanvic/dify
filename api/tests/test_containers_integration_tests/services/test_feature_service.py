@@ -4,7 +4,8 @@ import pytest
 from faker import Faker
 from sqlalchemy.orm import Session
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services.entities.feature_entities import (
     FeatureModel,
     KnowledgeRateLimitModel,

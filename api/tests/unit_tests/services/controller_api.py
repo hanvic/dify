@@ -97,7 +97,7 @@ from controllers.console.datasets.external import (
     ExternalApiTemplateListApi,
 )
 from controllers.console.datasets.hit_testing import HitTestingApi
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, AccountStatus, TenantAccountRole
 from models.dataset import Dataset, DatasetPermissionEnum
 

@@ -6,7 +6,7 @@ import pytest
 from flask import Flask
 from sqlalchemy.orm import Session, sessionmaker
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions import ext_application_services
 from extensions.ext_redis import RedisClientWrapper
 from models.model import DifySetup

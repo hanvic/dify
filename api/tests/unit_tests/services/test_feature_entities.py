@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from enums import CloudPlan
+from enums.cloud_plan import CloudPlan
 from services.entities.feature_entities import LicenseLimitationModel, SubscriptionModel
 
 

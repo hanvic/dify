@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from configs import dify_config
 from core.workflow.node_factory import LATEST_VERSION, NODE_TYPE_CLASSES_MAPPING
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.enums import BuiltinNodeTypes, NodeType
 from libs.infinite_scroll_pagination import InfiniteScrollPagination
 from models import Account, TagBinding

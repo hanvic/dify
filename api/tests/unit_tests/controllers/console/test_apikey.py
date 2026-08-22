@@ -22,7 +22,7 @@ from controllers.console.apikey import (
 )
 from controllers.console.datasets.datasets import DatasetApiKeyApi
 from core.rbac import RBACPermission, RBACResourceScope
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models import Account
 from models.account import AccountStatus, TenantAccountRole
 from models.enums import ApiTokenType

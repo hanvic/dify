@@ -5,7 +5,7 @@ from datetime import UTC, datetime
 import pytest
 from sqlalchemy.exc import IntegrityError
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account, AccountStatus
 from models.onboarding import AccountStepByStepTourState
 from services import step_by_step_tour_service as service_module

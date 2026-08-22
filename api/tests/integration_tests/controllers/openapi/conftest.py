@@ -10,7 +10,7 @@ from datetime import UTC, datetime, timedelta
 import pytest
 from flask import Flask
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_database import db
 from extensions.ext_redis import redis_client
 from models import Account, App, OAuthAccessToken, Tenant, TenantAccountJoin

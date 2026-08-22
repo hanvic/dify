@@ -1,5 +1,5 @@
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from events.tenant_event import tenant_was_created
 from services.enterprise.workspace_sync import WorkspaceSyncService
 

@@ -11,7 +11,7 @@ from sqlalchemy.engine.interfaces import DBAPICursor, ExecutionContext
 from sqlalchemy.orm import Session, sessionmaker
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import (
     Account,
     AccountStatus,

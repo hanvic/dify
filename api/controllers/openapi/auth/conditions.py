@@ -4,7 +4,7 @@ from collections.abc import Callable
 
 from configs import dify_config
 from controllers.openapi.auth.data import AuthData, RequestContext
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.oauth_bearer import Scope, TokenType
 from services.enterprise.enterprise_service import WebAppAccessMode
 from services.feature_service import FeatureService

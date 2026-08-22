@@ -8,7 +8,7 @@ from core.entities.model_entities import ModelStatus
 from core.entities.provider_entities import CredentialConfiguration
 from core.plugin.entities.plugin import PluginInstallationSource
 from core.plugin.entities.plugin_daemon import PluginModelProviderBinding
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.entities.common_entities import I18nObject
 from graphon.model_runtime.entities.model_entities import FetchFrom, ModelType, ParameterRule, ParameterType
 from graphon.model_runtime.entities.provider_entities import ConfigurateMethod

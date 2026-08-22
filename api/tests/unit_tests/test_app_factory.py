@@ -7,7 +7,7 @@ from flask import Blueprint, Flask
 from flask_restx import Resource
 
 from app_factory import create_flask_app_with_configs
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from libs.external_api import ExternalApi
 from services.entities.feature_entities import LicenseStatus
 

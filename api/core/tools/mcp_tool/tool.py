@@ -25,7 +25,7 @@ from core.tools.__base.tool import Tool
 from core.tools.__base.tool_runtime import ToolRuntime
 from core.tools.entities.tool_entities import ToolEntity, ToolInvokeMessage, ToolProviderType
 from core.tools.errors import ToolInvokeError
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.entities.llm_entities import LLMUsage, LLMUsageMetadata
 
 logger = logging.getLogger(__name__)

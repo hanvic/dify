@@ -14,7 +14,7 @@ from _pytest.logging import LogCaptureFixture
 from pytest_mock import MockerFixture
 from sqlalchemy.orm import Session
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account
 from tasks.delete_account_task import delete_account_task
 

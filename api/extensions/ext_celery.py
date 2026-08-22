@@ -10,7 +10,7 @@ from typing_extensions import TypedDict
 
 from configs import dify_config
 from dify_app import DifyApp
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.redis_names import normalize_redis_key_prefix
 from extensions.workflow_warm_shutdown import setup_workflow_warm_shutdown_handler
 

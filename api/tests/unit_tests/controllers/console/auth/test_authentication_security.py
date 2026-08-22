@@ -10,7 +10,7 @@ from flask_restx import Api
 import services.errors.account
 from controllers.console.auth.error import AuthenticationFailedError
 from controllers.console.auth.login import LoginApi
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.account import Account
 
 

@@ -13,7 +13,7 @@ from werkzeug.exceptions import Unauthorized
 import services.errors.account
 from controllers.console import wraps as console_wraps
 from controllers.web.login import EmailCodeLoginApi, EmailCodeLoginSendEmailApi, LoginApi, LoginStatusApi, LogoutApi
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from models.model import DifySetup
 from services.entities.auth_entities import LoginFailureReason
 

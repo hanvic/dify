@@ -2,7 +2,7 @@ from unittest.mock import create_autospec
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from machinery.context import RequestContext
 from services.entities.feature_entities import (
     FeatureModel,

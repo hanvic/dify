@@ -42,7 +42,8 @@ from core.errors.error import (
     QuotaExceededError,
 )
 from core.helper.trace_id_helper import get_external_trace_id, get_trace_session_id, omit_trace_session_id_from_payload
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from graphon.model_runtime.errors.invoke import InvokeError
 from libs import helper
 from libs.helper import UUIDStrOrEmpty

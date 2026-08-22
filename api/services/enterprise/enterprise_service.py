@@ -9,7 +9,7 @@ from cachetools.func import ttl_cache
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from configs import dify_config
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from extensions.ext_redis import redis_client
 from services.enterprise.base import (
     EnterpriseRequest,

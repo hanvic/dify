@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from services.enterprise.base import MCPIdentityRefreshError, MCPNoRefreshTokenError, MCPTokenError
 from services.enterprise.enterprise_service import (
     INVALID_LICENSE_CACHE_TTL,

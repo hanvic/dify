@@ -1,7 +1,8 @@
 from typing import cast
 from unittest.mock import patch
 
-from enums import CloudPlan, DeploymentEdition
+from enums.cloud_plan import CloudPlan
+from enums.deployment_edition import DeploymentEdition
 from services.billing_service import BillingInfo
 from services.entities.feature_entities import LimitationModel
 from services.feature_service import FeatureService

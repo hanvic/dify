@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from tasks.refresh_billing_vector_space_task import (
     refresh_billing_vector_space_task,
     schedule_billing_vector_space_refresh,

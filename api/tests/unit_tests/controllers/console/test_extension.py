@@ -20,7 +20,7 @@ from controllers.console.extension import (
     APIBasedExtensionDetailAPI,
     CodeBasedExtensionAPI,
 )
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 
 if _NEEDS_METHOD_VIEW_CLEANUP:
     del builtins.__dict__["MethodView"]

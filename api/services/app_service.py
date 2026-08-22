@@ -19,7 +19,7 @@ from core.errors.error import LLMBadRequestError, ProviderTokenNotInitError
 from core.model_manager import ModelManager
 from core.tools.tool_manager import ToolManager
 from core.tools.utils.configuration import ToolParameterConfigurationManager
-from enums import DeploymentEdition
+from enums.deployment_edition import DeploymentEdition
 from events.app_event import app_was_created, app_was_deleted, app_was_updated
 from extensions.ext_database import db  # noqa: F401
 from graphon.model_runtime.entities.model_entities import ModelPropertyKey, ModelType
