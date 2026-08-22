@@ -1,0 +1,17 @@
+services:
+  plugin_daemon:
+    ports:
+      - "5002:5002"
+  nginx:
+    volumes:
+      - ./nginx/conf.d/default.conf.dev:/etc/nginx/conf.d/default.conf:ro
+  api:
+    volumes:
+      - ./volumes/app/storage:/app/api/storage
+      - ../api/.venv/lib/python3.12/site-packages/graphon:/app/api/.venv/lib/python3.12/site-packages/graphon:ro
+      - ../api/.venv/lib/python3.12/site-packages/dify_agent:/app/api/.venv/lib/python3.12/site-packages/dify_agent:ro
+  worker:
+    volumes:
+      - ./volumes/app/storage:/app/api/storage
+      - ../api/.venv/lib/python3.12/site-packages/graphon:/app/api/.venv/lib/python3.12/site-packages/graphon:ro
+      - ../api/.venv/lib/python3.12/site-packages/dify_agent:/app/api/.venv/lib/python3.12/site-packages/dify_agent:ro
