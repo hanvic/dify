@@ -1,0 +1,12 @@
+scripts/
+.env
+.env.*
+.gitignore
+.git/
+__pycache__/
+*.pyc
+.DS_Store
+*.difypkg
+DECISIONS.md
+PROMPT_DESIGN.md
+PIPELINE_SETUP_GUIDE.md

@@ -1,0 +1,126 @@
+description:
+  human:
+    en_US: Send the provided image to a local Ollama VLM and return extracted Korean document text as markdown.
+    ko_KR: 제공된 이미지를 로컬 Ollama VLM에 전송하고 추출된 한국어 문서 텍스트를 마크다운으로 반환합니다.
+  llm: Send the provided image to a local Ollama VLM and return extracted Korean document text as markdown.
+extra:
+  python:
+    source: tools/vlm_ocr.py
+identity:
+  author: vlm_ocr
+  icon: icon.svg
+  label:
+    en_US: VLM OCR
+    ko_KR: VLM OCR
+  name: vlm_ocr
+parameters:
+  - form: form
+    human_description:
+      en_US: The image file to extract text from.
+      ko_KR: 텍스트를 추출할 이미지 파일입니다.
+    label:
+      en_US: Image File
+      ko_KR: 이미지 파일
+    llm_description: The image file to extract text from.
+    name: image_file
+    required: true
+    type: file
+  - form: llm
+    human_description:
+      en_US: Optional extra instructions appended to the OCR prompt.
+      ko_KR: OCR 프롬프트 뒤에 추가되는 선택적 지침입니다.
+    label:
+      en_US: Extra Instructions
+      ko_KR: 추가 지침
+    llm_description: Optional extra instructions appended to the OCR prompt.
+    name: prompt
+    required: false
+    type: string
+  - form: form
+    human_description:
+      en_US: Optional Ollama model tag that overrides the provider default.
+      ko_KR: 제공자 기본값을 덮어쓰는 선택적 Ollama 모델 태그입니다.
+    label:
+      en_US: Model
+      ko_KR: 모델
+    llm_description: Optional Ollama model tag that overrides the provider default.
+    name: model
+    required: false
+    type: string
+  - form: form
+    human_description:
+      en_US: Optional Ollama base URL that overrides the provider default.
+      ko_KR: 제공자 기본값을 덮어쓰는 선택적 Ollama 기본 URL입니다.
+    label:
+      en_US: Ollama Base URL
+      ko_KR: Ollama 기본 URL
+    llm_description: Optional Ollama base URL that overrides the provider default.
+    name: ollama_base_url
+    required: false
+    type: string
+  - form: form
+    human_description:
+      en_US: How to obtain the image bytes. Auto tries URL first and falls back to the file blob. Blob always uses the Dify file object. URL always downloads from the image URL.
+      ko_KR: 이미지 바이트를 가져오는 방식입니다. Auto는 URL을 먼저 시도하고 실패하면 파일 blob으로 대체합니다. Blob은 항상 Dify 파일 객체를 사용합니다. URL은 항상 이미지 URL에서 다운로드합니다.
+    label:
+      en_US: Download Mode
+      ko_KR: 다운로드 모드
+    llm_description: How to obtain the image bytes. Auto tries URL first and falls back to the file blob. Blob always uses the Dify file object. URL always downloads from the image URL.
+    name: download_mode
+    options:
+      - label:
+          en_US: Auto (URL first, then blob)
+          ko_KR: 자동 (URL 먼저, 실패 시 blob)
+        value: auto
+      - label:
+          en_US: Blob only
+          ko_KR: Blob만 사용
+        value: blob
+      - label:
+          en_US: URL only
+          ko_KR: URL만 사용
+        value: url
+    required: true
+    default: auto
+    type: select
+  - form: form
+    human_description:
+      en_US: When enabled, append a supplementary summary section ([부가 정보 요약]) after the verbatim OCR text, produced by the same VLM in one call. The summary restates all table cell values in natural language and augments visual context (stamps, signatures, table structure, layout) so downstream embedding retrieves both the original text and the enriched summary.
+      ko_KR: 켜면 원문 OCR 텍스트 뒤에 부가 정보 요약 섹션([부가 정보 요약])을 같은 VLM 한 번의 호출로 추가합니다. 요약은 표의 모든 셀 값을 자연어로 풀어쓰고 시각 맥락(도장·서명·표 구조·레이아웃)을 보강하여, 다운스트림 임베딩이 원문과 보강 요약 둘 다 검색에 활용하도록 합니다.
+    label:
+      en_US: Include Summary
+      ko_KR: 요약 포함
+    llm_description: When enabled, append a supplementary summary section after the verbatim OCR text, produced by the same VLM in one call.
+    name: include_summary
+    required: false
+    default: false
+    type: boolean
+  - form: form
+    human_description:
+      en_US: When enabled, turn on the model's reasoning (think) step so the VLM reasons over the image before producing the OCR text (+ summary). The reasoning trace is discarded and only the final answer is emitted, so thinking text never reaches downstream chunking/embedding. Increases latency.
+      ko_KR: 켜면 모델의 추론(think) 단계를 활성화하여 VLM이 이미지를 추론한 뒤 OCR 텍스트(+ 요약)를 생성합니다. 추론 흔적은 버리고 최종 답변만 반환하므로 thinking 텍스트가 다운스트림 청킹/임베딩에 들어가지 않습니다. 응답 시간이 길어집니다.
+    label:
+      en_US: Enable Thinking
+      ko_KR: 추론 사용
+    llm_description: When enabled, turn on the model reasoning step; only the final answer is returned and the reasoning trace is discarded.
+    name: enable_thinking
+    required: false
+    default: false
+    type: boolean
+  - form: form
+    human_description:
+      en_US: Maximum number of pages to process from a PDF file. Exceeding this limit will raise an error instead of silently truncating. Default is 120 pages (based on 3600s timeout / 30s per page).
+      ko_KR: PDF 파일에서 처리할 최대 페이지 수입니다. 이 한도를 초과하면 조용히 자르지 않고 오류가 발생합니다. 기본값은 120페이지(3600초 타임아웃 / 페이지당 30초 기준)입니다.
+    label:
+      en_US: Max Pages (PDF)
+      ko_KR: 최대 페이지 수 (PDF)
+    llm_description: Maximum number of pages to process from a PDF file. Exceeds this raises an error.
+    name: max_pages
+    required: false
+    default: 120
+    type: number
+output_schema:
+  type: object
+  properties:
+    result:
+      type: string

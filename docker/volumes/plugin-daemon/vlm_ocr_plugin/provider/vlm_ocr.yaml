@@ -1,0 +1,59 @@
+credentials_for_provider:
+  ollama_base_url:
+    required: true
+    default: http://host.docker.internal:11434
+    type: text-input
+    label:
+      en_US: Ollama Base URL
+      ko_KR: Ollama 기본 URL
+    help:
+      en_US: Base URL of the Ollama API server (e.g. http://host.docker.internal:11434).
+      ko_KR: Ollama API 서버의 기본 URL입니다(예 http://host.docker.internal:11434).
+  ollama_model:
+    required: true
+    default: qwen3.5:cloud
+    type: text-input
+    label:
+      en_US: Ollama Model
+      ko_KR: Ollama 모델
+    help:
+      en_US: Model tag to use for OCR (default qwen3.5:cloud).
+      ko_KR: OCR에 사용할 모델 태그입니다(기본값 qwen3.5:cloud).
+  think:
+    required: false
+    default: auto
+    type: select
+    options:
+      - value: auto
+        label:
+          en_US: Auto (enable for qwen3.5)
+          ko_KR: 자동(qwen3.5에서 활성화)
+      - value: "true"
+        label:
+          en_US: Enabled
+          ko_KR: 활성화
+      - value: "false"
+        label:
+          en_US: Disabled
+          ko_KR: 비활성화
+    label:
+      en_US: Think Mode
+      ko_KR: Think 모드
+    help:
+      en_US: Send think=true to Ollama. Auto enables it when the model tag contains qwen3.5.
+      ko_KR: Ollama에 think=true를 전송할지 설정합니다. 자동은 모델 태그에 qwen3.5가 포함되면 활성화합니다.
+extra:
+  python:
+    source: provider/vlm_ocr.py
+identity:
+  author: vlm_ocr
+  description:
+    en_US: Ollama VLM OCR provider for extracting Korean document text.
+    ko_KR: 한국어 문서 텍스트 추출을 위한 Ollama VLM OCR 제공자.
+  icon: icon.svg
+  label:
+    en_US: VLM OCR
+    ko_KR: VLM OCR
+  name: vlm_ocr
+tools:
+  - tools/vlm_ocr.yaml
